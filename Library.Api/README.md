@@ -1,6 +1,8 @@
 
 Visual Studio 2022
+
 This was all added in C# version 9.0
+
 My current language version is 11.0 as of 12/01/2023
 
 Using .NET 7
