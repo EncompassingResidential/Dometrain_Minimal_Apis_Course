@@ -125,6 +125,29 @@ app.MapGet("books/{isbn}", async (string isbn, IBookService bookService) =>
     return book is not null ? Results.Ok(book) : Results.NotFound();
 });
 
+/* PUT  Modify / Update a book
+ * https://localhost:7100/books/isbn-string
+ * with Body with raw JSON 
+ * see data in C:\repos\Dometrain\Minimal APIs\minimal-apis-course-final-master\3.LetsBuild\Library.Api\Data\Library_Books_examples.json
+ */
+app.MapPut("books/{isbn}", async (string isbn, Book book, IBookService bookService,
+    IValidator<Book> validator) =>
+{
+    book.Isbn = isbn;
+    var validationResult = await validator.ValidateAsync(book);
+    if (!validationResult.IsValid)
+    {
+        // Nick said in the above Creation EndPoint (POST) that
+        // you could have exposed / returns the validationResult object
+        // but you need to decide if you want to expose that object / data.
+        // not sure if that applies to here as well.
+        return Results.BadRequest(validationResult.Errors);
+    }
+
+    var updated = await bookService.UpdateAsync(book);
+
+    return updated ? Results.Ok(book) : Results.NotFound();
+});
 
 
 
