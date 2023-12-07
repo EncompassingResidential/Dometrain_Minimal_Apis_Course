@@ -46,10 +46,17 @@ app.UseSwaggerUI();
 // returns Hello World!
 app.MapGet("/", () => "Hello World!");
 
-/* POST
+/* 
+ * POST Create a book
  * https://localhost:7100/books
  * with Body with raw JSON 
- * see data in 
+ * see data in Data\Library_Books_examples.json
+ * 
+ * Returns 201 Created
+ * 
+ * If a book with this ISBN-10 or 13 already exists, returns 400 Bad Request
+ * 
+ * If the book is invalid, returns 400 Bad Request
  */
 app.MapPost("books", async (Book book, IBookService bookService,
     IValidator<Book> validator) =>
@@ -70,7 +77,7 @@ app.MapPost("books", async (Book book, IBookService bookService,
     {
         return Results.BadRequest(new List<ValidationFailure>
         {
-            new ValidationFailure("Isbn", "A book with this ISBN-13 already exists")
+            new ValidationFailure("Isbn", "A book with this ISBN-10 or 13 already exists")
         });
     }
 
@@ -149,7 +156,18 @@ app.MapPut("books/{isbn}", async (string isbn, Book book, IBookService bookServi
     return updated ? Results.Ok(book) : Results.NotFound();
 });
 
-
+/*
+ * URL - https://localhost:7100/books/123-4567890123
+ *    Returns 204 No Content
+ * 
+ * If no book with that ISBN-10 or 13 exists, 
+ *    Returns 404 Not Found
+ */
+app.MapDelete("books/{isbn}", async (string isbn, IBookService bookService) =>
+{
+    var deleted = await bookService.DeleteAsync(isbn);
+    return deleted ? Results.NoContent() : Results.NotFound();
+});
 
 // DB Init Here
 
