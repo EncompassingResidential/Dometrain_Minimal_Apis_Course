@@ -46,19 +46,24 @@ namespace Library.Api.Services
             return await connection.QueryAsync<Book>("SELECT * FROM Books");
         }
 
-        public Task<bool> DeleteAsync(string isbn)
-        {
-            throw new NotImplementedException();
-        }
-
         public async Task<IEnumerable<Book>> SearchByTitleAsync(string searchTerm)
         {
-            throw new NotImplementedException();
+            using var connection = await _connectionFactory.CreateConnectionAsync();
+            return await connection.QueryAsync<Book>(
+                "SELECT *" +
+                " FROM Books" +
+                " WHERE Title LIKE '%' || @SearchTerm || '%'",
+                new { SearchTerm = searchTerm });
         }
 
         public async Task<bool> UpdateAsync(Book book)
         {
             throw new NotImplementedException();
         }
+        public Task<bool> DeleteAsync(string isbn)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }
