@@ -1,0 +1,74 @@
+[
+    {
+        "isbn": "string",
+        "title": "string",
+        "author": "string",
+        "shortDescription": "string",
+        "pageCount": 0,
+        "releaseDate": "2023-12-05T18:28:28.54"
+    },
+    {
+        "isbn": "978-0137081073",
+        "title": "The Clean Coder",
+        "author": "Robert C. Martin",
+        "shortDescription": "In The Clean Coder: A Code of Conduct for Professional Programmers, legendary software expert Robert C. Martin introduces the disciplines, techniques, tools, and practices of true software craftsmanship",
+        "pageCount": 242,
+        "releaseDate": "2011-03-13T00:00:00"
+    },
+    {
+        "isbn": "890-1234567",
+        "title": "Testing Title",
+        "author": "Grandfather Fire",
+        "shortDescription": "The number of Regular Expression characters is confusing",
+        "pageCount": 369,
+        "releaseDate": "2019-12-31T00:00:00"
+    },
+    {
+        "isbn": "123-4567890123",
+        "title": "Testing Title 13",
+        "author": "Synthesis Commons",
+        "shortDescription": "Regular Expression characters at 13, 14 with hyphen",
+        "pageCount": 123,
+        "releaseDate": "2012-01-01T00:00:00"
+    },
+    {
+        "isbn": "234-5678901234",
+        "title": "Testing Title 14",
+        "author": "Synthesis Commons",
+        "shortDescription": "Regular Expression - characters at 13, 14 with hyphen",
+        "pageCount": 123,
+        "releaseDate": "2012-02-29T00:00:00"
+    },
+    {
+        "isbn": "345-6789012345",
+        "title": "Testing Title 15",
+        "author": "Synthesis Commons",
+        "shortDescription": "Regular Expression - characters at 13, 14 with hyphen",
+        "pageCount": 234,
+        "releaseDate": "2012-03-02T00:00:00"
+    },
+    {
+        "isbn": "456789012-3456",
+        "title": "Testing Title 16",
+        "author": "Synthesis Commons",
+        "shortDescription": "Regular Expression - putting dash in different location - characters at 13, 14 with hyphen",
+        "pageCount": 234,
+        "releaseDate": "2012-03-03T00:00:00"
+    },
+    {
+        "isbn": "1234567-890123",
+        "title": "String Titles are Passe",
+        "author": "Ritz, John",
+        "shortDescription": "Books with Strings talking about strings seems redundant.",
+        "pageCount": 57,
+        "releaseDate": "2023-12-06T20:01:43.386"
+    },
+    {
+        "isbn": "56789012-34567",
+        "title": "Python Testing Title 17",
+        "author": "Python Tester",
+        "shortDescription": "Python code - testing C# Server API - POSTing / Creating a book entry - https://localhost:7100/books",
+        "pageCount": 100,
+        "releaseDate": "2012-03-04T00:00:00"
+    }
+]
