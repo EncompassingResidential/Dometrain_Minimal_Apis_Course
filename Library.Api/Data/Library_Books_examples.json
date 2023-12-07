@@ -55,13 +55,13 @@
         "pageCount": 234,
         "releaseDate": "2012-03-03T00:00:00"
     },
-    {
+	{
         "isbn": "1234567-890123",
-        "title": "String Titles are Passe",
-        "author": "Ritz, John",
-        "shortDescription": "Books with Strings talking about strings seems redundant.",
-        "pageCount": 57,
-        "releaseDate": "2023-12-06T20:01:43.386"
+        "title": "String Titles Still are Passe",
+        "author": "Ritz, John 2",
+        "shortDescription": "Books with Strings talking about strings seems redundant.  Testing Update Book EndPoint.",
+        "pageCount": 575,
+        "releaseDate": "2023-12-07T20:58:13.000"
     },
     {
         "isbn": "56789012-34567",
@@ -70,5 +70,13 @@
         "shortDescription": "Python code - testing C# Server API - POSTing / Creating a book entry - https://localhost:7100/books",
         "pageCount": 100,
         "releaseDate": "2012-03-04T00:00:00"
-    }
+    },
+	{
+        "isbn": "67890123-45678",
+        "title": "Testing Title 17",
+        "author": "Synthesis Commons",
+        "shortDescription": "John Testing with Postman - Update Book ",
+        "pageCount": 313,
+        "releaseDate": "2012-03-07 12:56"
+	}
 ]
