@@ -83,9 +83,20 @@ app.MapPost("books", async (Book book, IBookService bookService,
  * 
  * returns ALL Books  status 200 Ok
  * , so dangerous for a large database
+ * 
+ * Overloaded this MapGet Endpoint with , string? searchTerm
+ * which makes this parameter optional (The ? is the character that makes it NULLable / optional)
+ * URL - https://localhost:7100/books?searchTerm=testing
+ * this returns all books with title of "testing" inside it.
  */
-app.MapGet("books", async (IBookService bookService) =>
+app.MapGet("books", async (IBookService bookService, string? searchTerm) =>
 {
+    if (searchTerm is not null && !string.IsNullOrWhiteSpace(searchTerm))
+    {
+        var matchedBooks = await bookService.SearchByTitleAsync(searchTerm);
+        return Results.Ok(matchedBooks);
+    }
+
     var books = await bookService.GetAllAsync();
     return Results.Ok(books);
 });
@@ -113,6 +124,9 @@ app.MapGet("books/{isbn}", async (string isbn, IBookService bookService) =>
     // i.e.              200 if it does exist  :  04 if it doesn't exit
     return book is not null ? Results.Ok(book) : Results.NotFound();
 });
+
+
+
 
 // DB Init Here
 
